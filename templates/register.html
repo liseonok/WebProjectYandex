@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-4 mb-4 text-center">Регистрация</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form action="" method="post" novalidate>
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(class="form-control", placeholder="Введите имя") }}
+                        {% for error in form.name.errors %}
+                            <div class="alert alert-danger mt-2" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.email.label }}
+                        {{ form.email(class="form-control", placeholder="Введите почту") }}
+                        {% for error in form.email.errors %}
+                            <div class="alert alert-danger mt-2" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password.label }}
+                        {{ form.password(class="form-control", placeholder="Введите пароль") }}
+                        {% for error in form.password.errors %}
+                            <div class="alert alert-danger mt-2" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.password_again.label }}
+                        {{ form.password_again(class="form-control", placeholder="Повторите пароль") }}
+                        {% for error in form.password_again.errors %}
+                            <div class="alert alert-danger mt-2" role="alert">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    {% if message %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                    {% endif %}
+
+                    <div class="text-center">
+                        {{ form.submit(class="btn btn-purple btn-block") }}
+                    </div>
+                </form>
+
+                <hr>
+                <p class="text-center mb-0">
+                    Уже есть аккаунт?
+                    <a href="{{ url_for('auth.login') }}">Войти</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -10,4 +10,4 @@ class User(UserMixin, SqlAlchemyBase):
     username = Column(sqlalchemy.String, unique=True)
     email = Column(sqlalchemy.String, unique=True)
     password = Column(sqlalchemy.String)
-    places = orm.relationship('Places', back_populates='user')
+    places = orm.relationship('Place', back_populates='user')

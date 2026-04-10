@@ -21,7 +21,7 @@ def login():
         db_sess = db_session.create_session()
         user = db_sess.query(User).filter(User.email == form.email.data).first()
 
-        if user and user.check_password(form.password.data):
+        if user and user.password == form.password.data:
             login_user(user, remember=form.remember_me.data)
             return redirect(url_for('main.index'))
 
@@ -56,10 +56,10 @@ def register():
             )
 
         user = User(
-            name=form.name.data,
-            email=form.email.data
+            username=form.name.data,
+            email=form.email.data,
+            password=form.password.data
         )
-        user.set_password(form.password.data)
 
         db_sess.add(user)
         db_sess.commit()

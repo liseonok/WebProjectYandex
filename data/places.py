@@ -10,7 +10,7 @@ class Place(SqlAlchemyBase):
     id = sqlalchemy.Column(sqlalchemy.Integer, primary_key=True)
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     description = sqlalchemy.Column(sqlalchemy.Text, nullable=False)
-    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey('users.id'), nullable=False)
+    user_id = sqlalchemy.Column(sqlalchemy.Integer, sqlalchemy.ForeignKey('user.id'), nullable=False)
     address = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     latitude = sqlalchemy.Column(sqlalchemy.Float, nullable=False)
     longitude = sqlalchemy.Column(sqlalchemy.Float, nullable=False)
@@ -19,4 +19,4 @@ class Place(SqlAlchemyBase):
 
     created_at = sqlalchemy.Column(sqlalchemy.DateTime, default=datetime.datetime.utcnow)
 
-    user = orm.relationship('User')
+    user = orm.relationship('User', back_populates='places')

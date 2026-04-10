@@ -4,6 +4,7 @@ from flask_login import LoginManager
 from data import db_session
 from data.user import User
 from blueprints.auth import auth_blueprint
+from blueprints.main_screen import main_blueprint
 
 
 app = Flask(__name__)
@@ -24,6 +25,7 @@ def main():
     db_session.global_init("db/blogs.sqlite")
 
     app.register_blueprint(auth_blueprint)
+    app.register_blueprint(main_blueprint)
 
     app.run(port=8888, host='localhost')
 

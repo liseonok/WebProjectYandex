@@ -19,19 +19,21 @@ def login():
 
     if form.validate_on_submit():
         db_sess = db_session.create_session()
-        user = db_sess.query(User).filter(User.email == form.email.data).first()
+        try:
+            user = db_sess.query(User).filter(User.email == form.email.data).first()
 
-        if user and user.password == form.password.data:
-            login_user(user, remember=form.remember_me.data)
-            return redirect(url_for('main.index'))
+            if user and user.password == form.password.data:
+                login_user(user, remember=form.remember_me.data)
+                return redirect(url_for('main.index'))
 
-        return render_template(
-            'login.html',
-            title='Вход в аккаунт',
-            form=form,
-            message='Неправильная почта или пароль'
-        )
-
+            return render_template(
+                'login.html',
+                title='Вход в аккаунт',
+                form=form,
+                message='Неправильная почта или пароль'
+            )
+        finally:
+            db_sess.close()
     return render_template(
         'login.html',
         title='Вход в аккаунт',
@@ -45,26 +47,28 @@ def register():
 
     if form.validate_on_submit():
         db_sess = db_session.create_session()
+        try:
+            existing_user = db_sess.query(User).filter(User.email == form.email.data).first()
+            if existing_user:
+                return render_template(
+                    'register.html',
+                    title='Регистрация',
+                    form=form,
+                    message='Пользователь с такой почтой уже существует'
+                )
 
-        existing_user = db_sess.query(User).filter(User.email == form.email.data).first()
-        if existing_user:
-            return render_template(
-                'register.html',
-                title='Регистрация',
-                form=form,
-                message='Пользователь с такой почтой уже существует'
+            user = User(
+                username=form.name.data,
+                email=form.email.data,
+                password=form.password.data
             )
 
-        user = User(
-            username=form.name.data,
-            email=form.email.data,
-            password=form.password.data
-        )
+            db_sess.add(user)
+            db_sess.commit()
 
-        db_sess.add(user)
-        db_sess.commit()
-
-        return redirect(url_for('auth.login'))
+            return redirect(url_for('auth.login'))
+        finally:
+            db_sess.close()
 
     return render_template(
         'register.html',

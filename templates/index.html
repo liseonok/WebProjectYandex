@@ -4,42 +4,41 @@
 <h1 class="mt-4 mb-4">Карта необычных мест</h1>
 
 <div class="mb-3">
-    {% if current_user.is_authenticated %}
-        <a href="/add_place" class="btn btn-purple">Добавить место</a>
-        <a href="/profile" class="btn btn-outline-secondary ml-2">Профиль</a>
-    {% else %}
-        <a href="/login" class="btn btn-purple">Войти, чтобы добавить место</a>
-    {% endif %}
+    <a class="btn btn-purple" href="/adding">Добавить место</a>
+    <a class="btn btn-outline-secondary" href="/profile">Профиль</a>
 </div>
 
-<div id="map" style="width: 100%; height: 500px; border-radius: 12px;"></div>
+<div class="text-center mb-4">
+    <img src="{{ map_url }}" alt="Карта" class="img-fluid">
+</div>
 
-<script src="https://api-maps.yandex.ru/2.1/?apikey=79d631f0-9469-4ff4-835b-4498b7ffe6de&lang=ru_RU" type="text/javascript"></script>
+<div class="d-flex flex-wrap justify-content-center" style="gap: 10px;">
+    <a class="btn btn-purple" href="/?lon={{ lon }}&lat={{ lat + 0.05 }}&zoom={{ zoom }}">Вверх</a>
+    <a class="btn btn-purple" href="/?lon={{ lon - 0.05 }}&lat={{ lat }}&zoom={{ zoom }}">Влево</a>
+    <a class="btn btn-purple" href="/?lon={{ lon + 0.05 }}&lat={{ lat }}&zoom={{ zoom }}">Вправо</a>
+    <a class="btn btn-purple" href="/?lon={{ lon }}&lat={{ lat - 0.05 }}&zoom={{ zoom }}">Вниз</a>
+    <a class="btn btn-purple" href="/?lon={{ lon }}&lat={{ lat }}&zoom={{ zoom + 1 }}">Приблизить</a>
+    <a class="btn btn-purple" href="/?lon={{ lon }}&lat={{ lat }}&zoom={{ zoom - 1 }}">Отдалить</a>
+</div>
+<h2 class="mb-3">Список мест</h2>
 
-<script>
-    ymaps.ready(init);
-
-    function init() {
-        const myMap = new ymaps.Map("map", {
-            center: [55.751244, 37.618423],
-            zoom: 11
-        });
-
-        {% for place in places %}
-            const placemark{{ place.id }} = new ymaps.Placemark(
-                [{{ place.latitude }}, {{ place.longitude }}],
-                {
-                    balloonContentHeader: "{{ place.name|e }}",
-                    balloonContentBody: `
-                        <p>{{ place.description|truncate(120)|e }}</p>
-                        <a href="/place/{{ place.id }}">Открыть описание</a>
-                    `,
-                    hintContent: "{{ place.name|e }}"
-                }
-            );
-
-            myMap.geoObjects.add(placemark{{ place.id }});
-        {% endfor %}
-    }
-</script>
+{% if places %}
+    {% for place in places %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <div>
+                    <h5 class="mb-1">ID {{ place.id }} — {{ place.name }}</h5>
+                    <small class="text-muted">{{ place.address }}</small>
+                </div>
+                <div>
+                    <a href="/places/{{ place.id }}" class="btn btn-purple">Узнать больше</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <div class="alert alert-light border">
+        Пока мест нет
+    </div>
+{% endif %}
 {% endblock %}

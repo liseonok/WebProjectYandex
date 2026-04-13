@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-4 mb-4">{{ place.name }}</h1>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <p><b>ID:</b> {{ place.id }}</p>
+        <p><b>Описание:</b> {{ place.description }}</p>
+        <p><b>Адрес:</b> {{ place.address }}</p>
+        <p><b>Широта:</b> {{ place.latitude }}</p>
+        <p><b>Долгота:</b> {{ place.longitude }}</p>
+        <p><b>Дата добавления:</b> {{ place.created_at }}</p>
+
+        {% if place.image_filename %}
+            <img src="{{ url_for('static', filename='uploads/' + place.image_filename) }}"
+                 alt="Фото места"
+                 class="img-fluid rounded mt-3">
+        {% endif %}
+    </div>
+</div>
+
+<div class="mt-3">
+    <a href="/" class="btn btn-outline-secondary">Назад</a>
+</div>
+{% endblock %}

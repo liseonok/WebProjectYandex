@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c4fb71ae-86c7-4e39-a685-949f580693d6" name="Changes" comment="главное окно, доделана регистрация, но не работает карта (спросить)">
-      <change afterPath="$PROJECT_DIR$/blueprints/place_adding.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/forms/PlaceForm.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/adding.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/place.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/blueprints/profile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/PlaceProfileEdit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/forms/ProfileEdit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/edit_place.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WebProjectYandex.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WebProjectYandex.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blueprints/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/blueprints/main_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/main_screen.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/blogs.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db/blogs.sqlite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/place.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/place.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +68,8 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/kushk/PycharmProjects/WebProjectYandex&quot;
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/kushk/PycharmProjects/WebProjectYandex&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">

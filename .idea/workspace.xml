@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c4fb71ae-86c7-4e39-a685-949f580693d6" name="Changes" comment="окно профиля доделано" />
+    <list default="true" id="c4fb71ae-86c7-4e39-a685-949f580693d6" name="Changes" comment="requirements.txt">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blueprints/main_screen.py" beforeDir="false" afterPath="$PROJECT_DIR$/blueprints/main_screen.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -179,15 +183,7 @@
       <option name="project" value="LOCAL" />
       <updated>1775834227322</updated>
     </task>
-    <task id="LOCAL-00010" summary="окно профиля доделано">
-      <option name="closed" value="true" />
-      <created>1776515279723</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1776515279723</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,7 +205,6 @@
     <MESSAGE value="ТЗ доделано" />
     <MESSAGE value="переместила ТЗ в папку проекта" />
     <MESSAGE value="главное окно, доделана регистрация, но не работает карта (спросить)" />
-    <MESSAGE value="окно профиля доделано" />
-    <option name="LAST_COMMIT_MESSAGE" value="окно профиля доделано" />
+    <option name="LAST_COMMIT_MESSAGE" value="главное окно, доделана регистрация, но не работает карта (спросить)" />
   </component>
 </project>

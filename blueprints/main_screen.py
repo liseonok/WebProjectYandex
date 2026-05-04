@@ -51,4 +51,3 @@ def learn_more(place_id):
         return render_template('place.html', title=place.name, place=place)
     finally:
         db_sess.close()
-

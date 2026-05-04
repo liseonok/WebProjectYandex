@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-4 mb-4">Мой профиль</h1>
+<div class="mb-3">
+    <a href="/" class="btn btn-outline-secondary">Назад</a>
+</div>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+        <h3 class="mb-3">Информация о пользователе</h3>
+        <p><b>ID:</b> {{ current_user.id }}</p>
+        <p><b>Имя:</b> {{ current_user.username }}</p>
+        <p><b>Почта:</b> {{ current_user.email }}</p>
+
+        <a href="/profile_edit" class="btn btn-purple">Изменить данные</a>
+    </div>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <h3 class="mb-3">Мои места</h3>
+
+        {% if places %}
+            {% for place in places %}
+                <div class="card mb-3 border">
+                    <div class="card-body">
+                        <h5>ID {{ place.id }} — {{ place.name }}</h5>
+                        <p class="mb-1"><b>Адрес:</b> {{ place.address }}</p>
+
+                        {% if place.is_private %}
+                            <p class="text-muted">Статус: приватное</p>
+                        {% else %}
+                            <p class="text-success">Статус: публичное</p>
+                        {% endif %}
+
+                        <a href="/edit_place/{{ place.id }}" class="btn btn-purple btn-sm">Изменить</a>
+                        <a href="/places/{{ place.id }}" class="btn btn-outline-dark btn-sm">Открыть</a>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>У вас пока нет добавленных мест.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

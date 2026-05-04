@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="mt-4 mb-4 text-center">Редактировать место</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form action="" method="post" enctype="multipart/form-data" novalidate>
+                    {{ form.hidden_tag() }}
+
+                    <div class="form-group">
+                        {{ form.name.label }}
+                        {{ form.name(class="form-control") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.description.label }}
+                        {{ form.description(class="form-control", rows="4") }}
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.address.label }}
+                        {{ form.address(class="form-control") }}
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form.latitude.label }}
+                            {{ form.latitude(class="form-control") }}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.longitude.label }}
+                            {{ form.longitude(class="form-control") }}
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        {{ form.image.label }}
+                        {{ form.image(class="form-control-file") }}
+                    </div>
+
+                    <div class="form-group form-check">
+                        {{ form.is_private(class="form-check-input") }}
+                        {{ form.is_private.label(class="form-check-label") }}
+                    </div>
+
+                    <div class="text-center">
+                        {{ form.submit(class="btn btn-purple btn-block") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -43,9 +43,11 @@ def index():
 
 @main_blueprint.route('/places/<place_id>')
 def learn_more(place_id):
+    print(f'{place_id} string')
     db_sess = db_session.create_session()
     try:
         place = db_sess.query(Place).get(place_id)
+        print(f'{place} string')
         return render_template('place.html', title=place.name, place=place)
     finally:
         db_sess.close()

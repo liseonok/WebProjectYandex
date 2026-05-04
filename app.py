@@ -6,6 +6,7 @@ from data.user import User
 from blueprints.auth import auth_blueprint
 from blueprints.main_screen import main_blueprint
 from blueprints.place_adding import place_blueprint
+from blueprints.profile import profile_blueprint
 
 
 app = Flask(__name__)
@@ -28,6 +29,7 @@ def main():
     app.register_blueprint(auth_blueprint)
     app.register_blueprint(main_blueprint)
     app.register_blueprint(place_blueprint)
+    app.register_blueprint(profile_blueprint)
 
     app.run(port=8888, host='localhost')
 
